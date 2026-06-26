@@ -185,7 +185,9 @@ class NEMDispatchLoadManager:
                 start_time=fetch_start,
                 end_time=end_time,
                 table_name=self.table_name,
-                raw_data_location=self.raw_cache_dir
+                raw_data_location=self.raw_cache_dir,
+                keep_csv=False,
+                rebuild=True,
             )
         except NoDataToReturn:
             print("nemosis 未返回新数据。")
