@@ -17,7 +17,7 @@ class OpenElectricityDataManager:
     def fetch_market_data(self):
         print(f"Fetching market data for {self.network_code} from {self.fetch_start} to {self.fetch_end}")
         market_data = self.client.get_market(
-            network_code='NEM',
+            network_code=self.network_code,
             metrics=[
                 MarketMetric.PRICE,
                 MarketMetric.DEMAND,
@@ -36,7 +36,7 @@ class OpenElectricityDataManager:
         print(f"Fetching network data for {self.network_code} from {self.fetch_start} to {self.fetch_end}")
         agg_grp = [ele for ele in ['interval'] + [self.network_2nd_grp] if ele is not None]
         network_data = self.client.get_network_data(
-            network_code='NEM',
+            network_code=self.network_code,
             metrics=[
                 DataMetric.ENERGY,
                 DataMetric.MARKET_VALUE,
